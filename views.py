@@ -8,6 +8,7 @@ def homepage():
     nome = ""
     idade = ""
     sexo = ""
+    erro = None
 
     if request.method == "POST":
         try:
@@ -16,6 +17,12 @@ def homepage():
             sexo = request.form.get("sexo", "")
             peso = float(request.form.get("peso", 0))
             altura = float(request.form.get("altura", 0))
+            
+            if altura <= 0 or peso <= 0:
+                raise ValueError("Peso e altura devem ser maiores que zero.")
+
+            if not 0.5 <= altura <= 2.5:
+                raise ValueError("Altura fora do intervalo esperado. Use metros (ex: 1.70).")
 
             imc = round(peso / (altura ** 2), 2)
 
@@ -33,7 +40,8 @@ def homepage():
                 classificacao = "Obesidade grau III"
 
         except Exception as e:
-            classificacao = f"Erro ao processar os dados: {e}"
+            erro = str(e)  
+
 
     return render_template(
         "homepage.html",
@@ -41,5 +49,6 @@ def homepage():
         classificacao=classificacao,
         nome=nome,
         idade=idade,
-        sexo=sexo
+        sexo=sexo,
+        erro=erro
     )
