@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">IMCApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="/">Calculadora</a>
+                </li>
+            </ul>
+            <form class="d-flex" method="get" action="/perfil">
+                <input class="form-control me-2" type="search" name="nome" placeholder="Seu nome (Como foi inserido na calculadora)" required>
+                <button class="btn btn-light" type="submit">Perfil</button>
+            </form>
+            </div>
+        </div>
+    </nav>
     <div class="container mt-5">
         <div class="card mx-auto" style="max-width: 600px;">
             <div class="card-body">
