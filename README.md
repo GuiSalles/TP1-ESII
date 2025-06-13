@@ -39,3 +39,9 @@ Este sistema é uma **calculadora de IMC** (Índice de Massa Corporal) desenvolv
 1. Instale os requisitos:
    ```bash
    pip install -r requirements.txt
+
+2. Execute o sistema:
+    python3 main.py
+
+3. Acesse no navegador:
+    http://localhost:5000
