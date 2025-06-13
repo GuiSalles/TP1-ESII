@@ -1,8 +1,8 @@
 import sqlite3
 
-DB_NAME = "usuarios.db"
+DB_PATH = "usuarios.db"
 
-def criar_tabela():
+def criar_tabela(DB_NAME = DB_PATH):
     with sqlite3.connect(DB_NAME) as conn:
         cursor = conn.cursor()
         cursor.execute("""
@@ -20,7 +20,7 @@ def criar_tabela():
         """)
         conn.commit()
 
-def inserir_avaliacao(dados):
+def inserir_avaliacao(dados,DB_NAME = DB_PATH):
     with sqlite3.connect(DB_NAME) as conn:
         cursor = conn.cursor()
         cursor.execute("""
@@ -38,7 +38,7 @@ def inserir_avaliacao(dados):
         ))
         conn.commit()
 
-def buscar_historico(nome):
+def buscar_historico(nome, DB_NAME = DB_PATH):
     with sqlite3.connect(DB_NAME) as conn:
         cursor = conn.cursor()
         cursor.execute("""
@@ -47,4 +47,4 @@ def buscar_historico(nome):
             WHERE nome = ?
             ORDER BY datetime(data) DESC
         """, (nome,))
-        return cursor.fetchall()
+    return cursor.fetchall()

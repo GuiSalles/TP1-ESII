@@ -40,8 +40,11 @@ Este sistema é uma **calculadora de IMC** (Índice de Massa Corporal) desenvolv
    ```bash
    pip install -r requirements.txt
 
-2. Execute o sistema:
+2. Ativar o venv (Caso necessário):
+    source venv/bin/activate 
+
+3. Execute o sistema:
     python3 main.py
 
-3. Acesse no navegador:
+4. Acesse no navegador:
     http://localhost:5000
